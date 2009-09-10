@@ -10,33 +10,33 @@
 public class Polymorphism {
 
   public static void main(String[] args) {
-    C c = new C();
-    D d = new D();
+    Puzon c = new Puzon();
+    Gitara d = new Gitara();
 
-    A a;
+    Soundable a;
     
     a = c;
-    a.doA();  // tutaj wywola sie wersja doA() dla c
+    a.makeSound();  // tutaj wywola sie wersja makeSound() dla c
     a = d;
-    a.doA(); // tutaj wywola sie wersja doA() dla d
+    a.makeSound(); // tutaj wywola sie wersja makeSound() dla d
   }
 }
 
-interface A {
-  void doA();
+
+interface Soundable {
+  void makeSound();
 }
 
-class C implements A {
+class Puzon implements Soundable {
 
-  public void doA() {
-    System.out.println("doA by C");
+  public void makeSound() {
+    System.out.println("dzwiek puzona");
   }
 }
+class Gitara implements Soundable {
 
-class D implements A {
-
-  public void doA() {
-    System.out.println("doA by D");
+  public void makeSound() {
+    System.out.println("dzwiek gitary");
   }
 }
 
