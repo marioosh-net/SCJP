@@ -102,8 +102,15 @@ class EA extends F {
   //privMeth(); //error
   }
 
+  // overriding (przesloniecie)
   protected void protMeth() {
     System.out.println("protMeth 2");
+
+  }
+
+  // overloading (przeciazeni)
+  protected void protMeth(int test) {
+
   }
 }
 

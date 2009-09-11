@@ -37,6 +37,12 @@ class Gitara implements Soundable {
 
   public void makeSound() {
     System.out.println("dzwiek gitary");
+    try {
+
+      
+    } catch ( java.lang.ArithmeticException e) {
+      
+    }
   }
 }
 
