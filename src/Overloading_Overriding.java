@@ -81,6 +81,9 @@ class UseAnimals {
  * typu obiektu na ktory referencja wskazuje (nie koniecznie ten sam typ co sama referencja! - polimorf.)
  * natomiast podczas kompilacji ktora perzeciazona metoda sie wykona na podstawie typu
  * przekazywanych parametrow.
+ *
+ * inaczej: typ obiektu decyduje o tym ktora z metod przeslonietych sie wykona
+ *          typ referencji decyduje o tym ktora z metod przeciazonych sie wykona
  */
 class Animal2 {
 
@@ -112,6 +115,7 @@ class Horse2 extends Animal2 {
     Animal2 ah2 = new Horse2();
     ah2.eat("Carrots"); // Animal2 nie ma metody eat(String), mimo ze polimorficznie zostalaby
                         // wywolana eat(String) dla Horse2, ktora rzeczywiscie jest
+                        // JAK WIDAC: referencja ah2 decyduje!!!!
   }
 
   // przesloniecie
