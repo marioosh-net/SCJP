@@ -1,5 +1,4 @@
 
-
 public class Overloading_Overriding {
 
   static public void main(String[] a) {
@@ -7,6 +6,7 @@ public class Overloading_Overriding {
 
   }
 }
+
 class Over1 {
 
   void one(int i) {
@@ -114,8 +114,8 @@ class Horse2 extends Animal2 {
 
     Animal2 ah2 = new Horse2();
     ah2.eat("Carrots"); // Animal2 nie ma metody eat(String), mimo ze polimorficznie zostalaby
-                        // wywolana eat(String) dla Horse2, ktora rzeczywiscie jest
-                        // JAK WIDAC: referencja ah2 decyduje!!!!
+  // wywolana eat(String) dla Horse2, ktora rzeczywiscie jest
+  // JAK WIDAC: referencja ah2 decyduje!!!!
   }
 
   // przesloniecie
@@ -129,3 +129,90 @@ class Horse2 extends Animal2 {
   }
 }
 
+/**
+ *
+ *
+ *
+ * return type in overriding
+ */
+class Alpha {
+
+  Alpha doStuff(char c) {
+    return new Alpha();
+  }
+
+  Beta retInt() {
+    return null;
+  }
+}
+
+class Beta extends Alpha {
+  // jesli zwracany typ jest podtypem przeslanianej metody,
+  // to jest to rowniez przesloniecie (overriding) - OK (tylko w javie 1.5!!!)
+
+  Beta doStuff(char c) {     // legal override in Java 1.5
+    return new Beta();
+  }
+
+  // w tym momencie to jest zle, bo jest druga proba przesloniecia tej samej metody
+  Alpha doStuff(char c) {
+    return new Alpha();
+  }
+
+  // tak juz zle. bo zwrcamy bardziej ogolny typ
+  Alpha retInt() {
+    return null;
+  }
+}
+
+/**
+ *
+ *
+ *
+ * Typy zwracane przez metody
+ * 
+ * PODSTAWOWA ZASADA:
+ *    jak X IS-A Y to metoda moze zwracac X, mimo ze w sygnaturze ma Y
+ *    np. Horse IS-A Animal, to metoda: Animal x() moze robic: return new Horse();
+ *
+ *    inaczej: metoda moze zwracac podtyp (subtype)
+ *    
+ */
+class Returner {
+  // zwracane typy
+  // ok
+
+  public Animal getAnimal() {
+    return new Horse();  // Assume Horse extends Animal, Horse IS-A Animal
+  }
+
+  // nie ok
+  public Horse getAnimal() {
+    return new Animal();  // Animal is NOT a Horse
+  }
+
+  // ok
+  Object retOK() {
+    int i = 1;
+    return i; //int is a Object
+  }
+
+  // nie ok
+  public int retNotOK() {
+    return new Object(); //Object is NOT a int
+  }
+}
+
+interface Chewable {
+}
+
+class Gum implements Chewable {
+}
+
+class TestChewable {
+  // Method with an interface return type
+
+  public Chewable getChewable() {
+    return new Gum();  // Return interface implementer
+  }
+}

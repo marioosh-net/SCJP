@@ -22,6 +22,8 @@ public class Downcasting {
     // nie ma bledu kompilacji, ale jest blad podczas wykonywania!!
     // ERROR: Animal cannot be cast to Dog !
     try {
+      // kompilator puszcza jesli rzutowanie jest w obrebie drzewa dziedziczenia, ale nie sprawdza
+      // poprawnosci tego rzutowania, dlatego blad dopiero wyleci podczas uruchamiania
       Dog d = (Dog) animal;
     } catch (java.lang.ClassCastException e) {
       e.printStackTrace();
@@ -31,6 +33,18 @@ public class Downcasting {
     Animal animal_ = new Dog();
     Dog d_ = (Dog) animal_;
     System.out.println("Animal is not Dog, but Dog is a Animal");
+  }
+}
+
+// upcasting (to more general type) / rzutowanie do bardziej ogolnego typu
+class Upcasting {
+  public static void main(String[] args) {
+    new Upcasting();
+  }
+  Upcasting() {
+    Dog d = new Dog();
+    Animal a = (Animal)d; // jawnie (explicitly)
+    Animal b = d;         // niejawnie (implicitly)
   }
 }
 

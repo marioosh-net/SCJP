@@ -52,3 +52,40 @@ class Horse extends Animal {
     super.go_private(); // error
   }
 }
+
+
+/**
+ *
+ *
+ *
+ *
+ *
+ * przykladzik z interfejsem i dziedziczeniem
+ */
+
+interface Testable {
+
+  void test();
+}
+class T extends Animal implements Testable {
+  public void test() {
+
+  }
+}
+
+class T2 extends T {
+  // tutaj juz nie musi byc redefinicji metody test() !!
+  // ale moze byc jej przeslonieta (overriding)
+  public void test() {
+
+  }
+}
+
+// pulapka!
+class T3 extends T implements Testable {
+  // tutaj juz nie musi byc redefinicji metody test() !!!!
+  // bo jest ona zrobiona w klasie bazowej T, mimo ze jest "implements"
+  T3() {
+    this.test(); // ok
+  }
+}
