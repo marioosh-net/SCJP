@@ -180,15 +180,20 @@ class Beta extends Alpha {
  */
 class Returner {
   // zwracane typy
-  // ok
 
+  // ok
   public Animal getAnimal() {
     return new Horse();  // Assume Horse extends Animal, Horse IS-A Animal
   }
 
   // nie ok
-  public Horse getAnimal() {
+  public Horse getAnimal2() {
     return new Animal();  // Animal is NOT a Horse
+  }
+
+  //ale juz ok (dla kompilatora), natomiast ERROR at runtime (Aniaml nie jest Horse!!)
+  public Horse getAnimal3() {
+    return (Horse)new Animal();  // rzutowanie
   }
 
   // ok
