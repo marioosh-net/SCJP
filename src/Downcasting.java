@@ -11,6 +11,9 @@ class Animal {
 }
 
 class Dog extends Animal {
+  void hau(){
+
+  }
 }
 
 // downcasting - to more specific class in inheritance tree

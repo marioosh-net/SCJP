@@ -150,7 +150,7 @@ class Beta extends Alpha {
   // jesli zwracany typ jest podtypem przeslanianej metody,
   // to jest to rowniez przesloniecie (overriding) - OK (tylko w javie 1.5!!!)
 
-  Beta doStuff(char c) {     // legal override in Java 1.5
+  Beta doStuff(char c) {     // legal override in Java 1.5, tzw. covariant returns
     return new Beta();
   }
 
@@ -193,7 +193,7 @@ class Returner {
 
   //ale juz ok (dla kompilatora), natomiast ERROR at runtime (Aniaml nie jest Horse!!)
   public Horse getAnimal3() {
-    return (Horse)new Animal();  // rzutowanie
+    return (Horse) new Animal();  // rzutowanie
   }
 
   // ok
@@ -219,5 +219,43 @@ class TestChewable {
 
   public Chewable getChewable() {
     return new Gum();  // Return interface implementer
+  }
+}
+
+/**
+ *
+ *
+ *
+ *
+ * Overloading - example 3
+ *
+ * ZASADA:
+ * In every case, when an exact match isn't found, the JVM uses the method with the
+ * smallest argument that is wider than the parameter.
+ */
+class EasyOver {
+
+  static void go(int x) {
+    System.out.print("int ");
+  }
+
+  static void go(long x) {
+    System.out.print("long ");
+  }
+
+  static void go(double x) {
+    System.out.print("double ");
+  }
+
+  public static void main(String[] args) {
+    byte b = 5;
+    short s = 5;
+    long l = 5;
+    float f = 5.0f;
+    go(b);  // nie ma metody z parametrem byte, to java bierze metode z szerszym, ale mozliwie
+            // najwezszym typem kompatybilnym - tutaj jest to int.
+    go(s);  // jak wyzej
+    go(l);
+    go(f);  // nie ma go(float x){}, to leci metoda z double w parametrze
   }
 }
