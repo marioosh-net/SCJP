@@ -247,15 +247,103 @@ class EasyOver {
     System.out.print("double ");
   }
 
+  static void go2(double x) {
+    System.out.print("double ");
+  }
+
   public static void main(String[] args) {
     byte b = 5;
     short s = 5;
     long l = 5;
     float f = 5.0f;
     go(b);  // nie ma metody z parametrem byte, to java bierze metode z szerszym, ale mozliwie
-            // najwezszym typem kompatybilnym - tutaj jest to int.
+    // najwezszym typem kompatybilnym - tutaj jest to int.
     go(s);  // jak wyzej
     go(l);
     go(f);  // nie ma go(float x){}, to leci metoda z double w parametrze
+
+    // tutaj poleci wszystko na metodzie z double w parametrze
+    go2(b);
+    go2(s);
+    go2(l);
+    go2(f);
+  }
+}
+
+/**
+ *
+ *
+ *
+ * Overloading and Boxing
+ * 
+ * ZASADA:
+ * Java wybierze widening zamiast boxing'u :), czyli woli wybrac metode z szerszym zakresem
+ *   dla przekazywanego parametru, niz robic boxing, nawet na odpowiadajacym typie
+ */
+class AddBoxing {
+
+  static void go(Integer x) {
+    System.out.println("Integer");
+  }
+
+  // Answer: ta metoda sie wywola
+  static void go(long x) {
+    System.out.println("long");
+  }
+
+  public static void main(String[] args) {
+    int i = 5;
+    go(i); // which go() will be invoked?
+  }
+}
+
+/**
+ *
+ *
+ *
+ * I znowu ciekawy przypadek i zasada:
+ * ZASADA:
+ *    widening wybierany jest przed metodami z nieokreslona liczba argumentow (var-args)
+ *
+ * Podsumowujac te dwa przyklady:
+ *    ■ Widening beats boxing
+ *    ■ Widening beats var-args
+ */
+class AddVarargs {
+
+  static void go(int x, int y) { // <- ta metoda sie wykona
+    System.out.println("int,int");
+  }
+
+  static void go(byte... x) {
+    System.out.println("byte... ");
+  }
+
+  public static void main(String[] args) {
+    byte b = 5;
+    go(b, b); // which go() will be invoked?
+  }
+}
+
+/**
+ *
+ *
+ * Boxing vs Widening
+ *
+ * ZASADA: Boxing beats var-args :)
+ */
+class BoxOrVararg {
+
+  static void go(Byte x, Byte y) {
+    System.out.println("Byte, Byte");
+  }
+
+  static void go(byte... x) {
+    System.out.println("byte... ");
+  }
+
+  public static void main(String[] args) {
+    byte b = 5;
+    go(b, b); // which go() will be invoked?
   }
 }
