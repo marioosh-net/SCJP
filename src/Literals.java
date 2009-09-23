@@ -49,7 +49,6 @@ public class Literals {
     // takie przypisanie (dec,oct,hex) domyslnie traktuje wartosc jako int
     int max = 2147483647; // maksymalna wartosc int (2^31 - 1)
     int min = -2147483648; // minimalna wartosc int (- 2^31)
-
   }
 
   static void longs() {
@@ -97,6 +96,8 @@ public class Literals {
     // identyczne
     byte b = 27;        // niejawne rzutowanie (robi je kompilator)
     byte c = (byte) 27; // jawne rzutowanie (cast) int na byte
+    byte w1 = 127;      // rzutowanie int na byte (miesic sie w zakresie bajta)
+    byte w2 = 128;      // przekracza byte!!
 
     // the result of an expression involving anything int-sized or smaller is always an int
     byte x = 32;
@@ -136,5 +137,10 @@ public class Literals {
     // ale to juz ok:
     byte bv = 3;
     bv = (byte) (bv + 7);
+
+    // liczby bez zadnych znaczkow (f,d, bez kropki itd.) sa ZAWSZE domyslnie integerem!!!
+    double ss1 = 2147483649;    // zle (domyslnie int)
+    double ss2 = 2147483649.2;  // dobrze (domyslnie double, bo jest przecinek)
+    double ss3 = 2147483649f;   // dobrze (float miesci sie w double)
   }
 }

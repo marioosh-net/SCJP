@@ -48,7 +48,7 @@ class ScopeErrors2 {
         break;
       }
     }
-    System.out.print(test);   // 'test' is an ex-variable,
+    System.out.println(test);   // 'test' is an ex-variable,
                               // it has ceased to be...
   }
 }

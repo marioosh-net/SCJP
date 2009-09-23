@@ -347,3 +347,130 @@ class BoxOrVararg {
     go(b, b); // which go() will be invoked?
   }
 }
+
+/**
+ *
+ * ZASADA:
+ *    Remember, none of the wrapper classes will widen from one to another!
+ *    Bytes won’t widen to Shorts, Shorts won’t widen to Longs, etc.
+ *
+ */
+class Dog4 {
+
+  public static void main(String[] args) {
+    Dog4 d = new Dog4();
+    d.test(new Integer(5)); // can't widen an Integer to a Long
+  }
+
+  void test(Long x) {
+  }
+}
+
+// ale to jest ok:
+class Animaler {
+
+  static void eat() {
+  }
+}
+
+class Dog3 extends Animaler {
+
+  public static void main(String[] args) {
+    Dog3 d = new Dog3();
+    d.go(d); // is this legal ? YES Dog3 is an Animaler
+  }
+
+  void go(Animaler a) {
+  }
+}
+
+/**
+ *
+ *
+ * połączenia konwersji:
+ *    boxing i widening - DOBRZE
+ *    widening i boxing - ZLE
+ *    boxing in var-args
+ *
+ */
+class WidenAndBox {
+
+  static void go(Long x) {
+    System.out.println("Long");
+  }
+
+  public static void main(String[] args) {
+    byte b = 5;
+    go(b);  // compiler-error: must widen then box - illegal
+  // Long cannot be applied to byte
+  }
+}
+
+class BoxAndWiden {
+
+  static void go(Object o) {
+    Byte b2 = (Byte) o; // ok - it's a Byte object
+    System.out.println(b2);
+  }
+
+  public static void main(String[] args) {
+    System.out.println("asdas");
+    byte b = 5;
+    go(b); // can this byte turn into an Object ? YES!
+  }
+}
+
+class Vararg {
+
+  static void wide_vararg(long... x) {
+    System.out.println("long...");
+  }
+
+  static void box_vararg(Integer... x) {
+    System.out.println("Integer...");
+  }
+
+  public static void main(String[] args) {
+    int i = 5;
+    wide_vararg(i, i); // needs to widen and use var-args, that's OK
+    box_vararg(i, i); // needs to box and use var-args, that's OK
+  }
+}
+
+/**
+ *
+ *
+ * pułapka
+ */
+class VerySimpleCalculator {
+
+  public long add(long a, long b) {
+    return a + b;
+  }
+
+  public Long add(Long a, Long b) {
+    return a + b;
+  }
+
+  public static void main(String[] args) {
+    Long a = 7L;
+    long b = 5L;  // Long b = 5L; <- tak by bylo ok
+
+    VerySimpleCalculator vsc = new VerySimpleCalculator();
+    long result = vsc.add(a, b);  // w tym momencie kompilator nie wie ktora wybrac metode
+    System.out.println("Result:" + result);
+  }
+}
+
+/**
+ * OGOLNE ZASADY dotyczace przeciazania metod przy pomocy boxingu, wideningu i var-args:
+ * 
+ *   Primitive widening uses the "smallest" method argument possible.
+ *   Used individually, boxing and var-args are compatible with overloading.
+ *   You CANNOT widen from one wrapper type to another. (IS-A fails.)
+ *   You CANNOT widen and then box. (An int can't become a Long.)
+ *   You can box and then widen. (An int can become an Object, via Integer.)
+ *   You can combine var-args with either widening or boxing.
+ */
+class Podsumowanie {
+}

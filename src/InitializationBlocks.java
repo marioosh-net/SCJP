@@ -15,6 +15,8 @@ public class InitializationBlocks {
 
   static int x;
   int y;
+  static final int z = 2;
+  final int z1;
 
   public static void main(String[] args) {
     new InitializationBlocks();
@@ -26,6 +28,14 @@ public class InitializationBlocks {
     System.out.println("static init");
   } // static init block
 
+  static {
+    z = 1;
+  }
+
+  {
+    // w bloku inicjalizac. mozna zmienic zmienna final, ale jesli nie jest ustawiona!!!!
+    z1 = 2; 
+  }
 
   {
     y = 8;

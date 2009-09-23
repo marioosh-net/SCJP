@@ -5,6 +5,7 @@
 
 /**
  * Klasy otaczające (Wrappers)
+ * Boxing / Unboxing
  *
  * To co trzeba zapamietac na egzamin:
  * In summary, the essential method signatures for Wrapper conversion methods are
