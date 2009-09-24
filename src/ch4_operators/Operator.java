@@ -199,7 +199,7 @@ class ArithmeticOperators {
   }
 
   ArithmeticOperators() {
-    int x = 14 % 3;  // reszta z dzielenia = 2
+    int r = 14 % 3;  // reszta z dzielenia = 2
     System.out.println(x);
 
     /**
@@ -225,6 +225,103 @@ class ArithmeticOperators {
     /**
      * Icrement / Decrement operators
      */
-    
+    int j = 0;
+    System.out.println(j++);  // -> 0; dodanie nastepuje dopiero PO wyswietleniu (uzyciu j w wyrazeniu)
+    System.out.println(j);    // -> 1;
+    System.out.println(++j);  // -> 2; dodanie nastepuje PRZED wyswietleniem (uzyciem j w wyrazeniu)
+    System.out.println(j);    // -> 2;
+
+    int x = 2;
+    int y = 3;
+    if ((y == x++) || (x < ++y)) {
+      // If 3 is equal to 2 OR 3 < 4
+      System.out.println("x = " + x + " y = " + y);
+    }
+
+  }
+}
+
+/**
+ *
+ * Conditional operators
+ */
+class Conditional {
+
+  static public void main(String[] args) {
+    new Conditional();
+  }
+
+  Conditional() {
+    boolean b = true;
+    int j = b ? 5 : 2; // jesli b == true to j = 5 else j = 2
+    j = j > 2 ? 1 : 3;
+
+    // zagniezdzone
+    String test = true ? "test" : j > 2 ? ">2" : "<=2";
+
+  }
+}
+
+/**
+ *
+ * Logical Operators
+ */
+class Logical {
+
+  /**
+   *
+   * Bitwise operators
+   * porownuja bit po bicie
+   *  & - oba bity musza byc ustawione, wtedy ustawiana jest 1
+   *  | - jeden lub drugi bit ustaiony, wtedy ustawiana jest 1
+   *  ^ - tylko jeden ustawiony
+   */
+  class Bitwise {
+
+    Bitwise() {
+      byte b1 = 6 & 8;  // -> 0110 & 1000 = 0000
+      byte b2 = 7 | 9;  // -> 0111 | 1001 = 1111
+      byte b3 = 5 ^ 4;  // -> 0101 ^ 0100 = 0001
+    }
+  }
+
+  /**
+   * || i &&  - short-circuit
+   *            (sprawdzaja tylko do momentu kiedy warunek bedzie spelniony/niespelniony)
+   * | i &    - non-short-circuit
+   *            (sprawdzaja WSZYSTKIE skladowe od lewej do prawej)
+   * ^        - non-short-circuit
+   *            exclusive-OR (XOR) - tylko jeden operand moze byc true
+   * !        - zmienia warunek na przeciwny (wiadoma zasada)
+   * ZASADA: dzialaja tylko na boolean'ach!!!!
+   */
+  Logical() {
+    int a = 2;
+    int b = 5;
+    if (a > b && b == 1) {
+      // sprawdza od lewej do prawej. jesli lewy nie jest spelniony, to nie sprawdza
+      // juz nastepnych!! dlatego jest szybki (short-circuit)
+    }
+    if (a > b || b == 1) {
+      // tutaj jesli piewszy jest na true, to nie sprawdza kolejnych
+    }
+    if (func(2) || func(3)) {
+      // func() wywola sie tylko raz
+    }
+    if (func(2) | func(3)) {
+      // func() wywola sie 2 razy !
+    }
+
+    // xor
+    System.out.println("xor " + ((2<3) ^ (4>3))); // -> false
+
+    if (5 && 6) {
+    } // compilation error (tylko booleans)
+
+  }
+
+  boolean func(int i) {
+    System.out.println("func");
+    return i > 0 ? true : false;
   }
 }
