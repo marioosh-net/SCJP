@@ -21,28 +21,31 @@ public class Wrapper {
     int a3 = Integer.parseInt("10");
     int a4 = a.intValue();
   }
-  // standardowo po dwa kontruktory (wyjatek to Character)
-  Integer i = new Integer(1);
-  Integer j = new Integer("10");
-  Character ch = new Character('a');
 
-  // standarowo 2 metody statyczne valueOf (ale nie zawsze)
-  Float f2 = Float.valueOf("3.14f");
-  Integer i2 = Integer.valueOf("1012", 3); // drugi parametr to radix - system liczbowy (dwojkowy, 8-kowy itd.)
-  Integer i3 = Integer.valueOf("1011", 2); // tutaj dwojkowy
-  Integer i4 = Integer.valueOf("ff", 16); // tutaj hexadecymalny
+  Wrapper() {
+    // standardowo po dwa kontruktory (wyjatek to Character)
+    Integer i = new Integer(1);     // primitive
+    Integer j = new Integer("10");  // String
+    Character ch = new Character('a');  // ma tylko konstruktor przymujacy char za parametr
 
-  // standardow metody konwertujace xxxValue()
-  Integer k = new Integer(42);
-  byte b = k.byteValue();
-  short s = k.shortValue();
-  double d = k.doubleValue();
-  // parseXxx() i valueOf()
-  Integer G = Integer.valueOf("10");  // zwraca obiekt
-  int g = Integer.parseInt("10");     // zwraca typ prymitywny
+    // standarowo 2 metody statyczne valueOf (ale nie zawsze)
+    Float f2 = Float.valueOf("3.14f");
+    Integer i2 = Integer.valueOf("1012", 3); // drugi parametr to radix - system liczbowy (dwojkowy, 8-kowy itd.)
+    Integer i3 = Integer.valueOf("1011", 2); // tutaj dwojkowy
+    Integer i4 = Integer.valueOf("ff", 16); // tutaj hexadecymalny
 
-  // metoda toString()
-  java.lang.Double xd = new java.lang.Double("3.14");
+    // standardow metody konwertujace xxxValue()
+    Integer k = new Integer(42);
+    byte b = k.byteValue();
+    short s = k.shortValue();
+    double d = k.doubleValue();
+    // parseXxx() i valueOf()
+    Integer G = Integer.valueOf("10");  // zwraca obiekt
+    int g = Integer.parseInt("10");     // zwraca typ prymitywny
+
+    // metoda toString()
+    java.lang.Double xd = new java.lang.Double("3.14");
+  }
 
 
   {
@@ -109,6 +112,9 @@ class Boxing {
     Integer j1 = 10;
     Integer j2 = 10;
     // w tym wypadku okazuje sie ze j1 i j2 to TE SAME OBIEKTY
+    if (j1 == j2) {
+      System.out.println("same objects");
+    }
     // dla pewnych typow klas otaczajacych lub zakresow tych typow java stosuje polityke:
     // ze jesli wartosci prymitwne sa rowne, to obiekty tez sa rowne (==) !!!!
     //
@@ -119,8 +125,14 @@ class Boxing {
      *  ■ Character from \u0000 to \u007f (7f is 127 in decimal)
      *  ■ Short and Integer from -128 to 127
      */
-    if (j1 == j2) {
-      System.out.println("same objects");
+
+    // TO jest ciekawe!!
+    Integer iii = 127;
+    Integer jjj = 127;
+    if (iii == jjj) {
+      iii++;
+      System.out.println("jjj:" + jjj);  // niby te same obiekty ale jjj = 127, why not 128 ??
+      System.out.println("iii:" + iii);  // a iii = 128
     }
   }
 }

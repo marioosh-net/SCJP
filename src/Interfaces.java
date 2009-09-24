@@ -58,6 +58,7 @@ class Phone3 extends Interfaces implements Device {
  * ale nie moze implementowac zadnego kodu
  */
 interface Inter3 extends Device {
+  
 }
 
 interface Inter4 extends Inter3 {
