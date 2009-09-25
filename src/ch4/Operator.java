@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch4_operators;
+package ch4;
 
 /**
  *
@@ -55,6 +55,14 @@ public class Operator {
      * Pulapka 1
      */
     if (x = 1) {  // niekompatybilne typy. wymagany boolean, a jest int
+    }
+
+    /**
+     * UWAGA: ale...
+     */
+    boolean bool = false;
+    if (bool = true) { // takie cos TYLKO na boolean'ach i Boolean'ach!!!!
+      // wykona sie bo zostanie przypisane bool = true i to w efekcie daje true!
     }
   }
 }
@@ -189,7 +197,7 @@ class ArrayTest {
 /**
  *
  *
- * ZASADY:  wyliczane sa od lewej do prawej (zawsze)
+ * ZASADY:  wyliczane sa od lewej do prawej (ZAWSZE, nawet przy konktatenacji)
  *          *,/,% maja wyzszy priorytet niz + i - wiec sa pierwsze liczone
  */
 class ArithmeticOperators {
@@ -237,6 +245,22 @@ class ArithmeticOperators {
       // If 3 is equal to 2 OR 3 < 4
       System.out.println("x = " + x + " y = " + y);
     }
+
+    /**
+     * UWAGA
+     * fajny przyklad!!
+     */
+    int index = 1;
+    int[][] dd = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1, 0}};
+    System.out.println(dd[index++][index++]); //dd[1][2];
+
+    /**
+     * pulapka
+     */
+    int result = 1;
+    result = (true) ? result-- : result++; // result bedzie = 1
+    // dlatego bo wczesniej wartosc zostanie przypisana, a pozniej odjeta!
+
 
   }
 }
@@ -313,7 +337,7 @@ class Logical {
     }
 
     // xor
-    System.out.println("xor " + ((2<3) ^ (4>3))); // -> false
+    System.out.println("xor " + ((2 < 3) ^ (4 > 3))); // -> false
 
     if (5 && 6) {
     } // compilation error (tylko booleans)
@@ -325,3 +349,4 @@ class Logical {
     return i > 0 ? true : false;
   }
 }
+
