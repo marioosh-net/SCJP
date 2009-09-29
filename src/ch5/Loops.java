@@ -67,6 +67,12 @@ public class Loops {
       break;
     }
 
+    int zz = 1;
+    String x;
+    for (x = "", zz = 0 ;;) {
+
+    }
+
     // expression: moze byc nawet takie
     int m = 3;
     for (int n = 1; m != 1; System.out.println("ala"), System.out.println("ma kota")) {
@@ -122,6 +128,7 @@ class EnhancedFor {
     for (Object element : new char[]{'a', 'b'}) {
       System.out.println(element);
     }
+
   }
 
   int[] getArr() {

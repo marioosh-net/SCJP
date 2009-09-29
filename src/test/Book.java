@@ -23,3 +23,4 @@ class MyBook extends Book {
     // (kompilator dodalby go, gdyby nie byl zdefiniowany zaden inny) to wystapi blad.
   }
 }
+
