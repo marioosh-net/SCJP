@@ -453,11 +453,15 @@ class J {
   }
 }
 
-
 /**
  *
- *
- *
- *
- * /
+ * finalna nie moze by dziedziczona
  */
+final class X {
+  int x = 1;
+  {System.out.println("test");}
+}
+class Y extends X {
+ 
+}
+
