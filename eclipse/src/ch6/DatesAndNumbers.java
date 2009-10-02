@@ -210,6 +210,5 @@ class NumberFormatClass {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
 	}
 }
