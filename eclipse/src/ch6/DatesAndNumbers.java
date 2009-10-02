@@ -25,7 +25,7 @@ public class DatesAndNumbers {
  */
 class DateClass {
 	void examples() {
-		System.out.println(">>>>DateClass<<<<<");
+		System.out.println("------------------DateClass--------------");
 
 		// standarowe pobranie biezacej daty
 		Date now = new Date();
@@ -52,7 +52,7 @@ class DateClass {
 class CalendarClass {
 
 	void examples() {
-		System.out.println(">>>>CalendarClass<<<<<");
+		System.out.println("------------------CalendarClass--------------");
 		/*
 		 * tak nie wolno! Calendar c = new Calendar(); Calendar[] cals = new
 		 * Calendar[2]; // ale tak WOLNO!, bo to tylko tablica referencji
@@ -98,7 +98,7 @@ class CalendarClass {
  */
 class DateFormatClass {
 	void examples() {
-		System.out.println(">>>>DateFormatClass<<<<<");
+		System.out.println("------------------DateFormatClass--------------");
 		Date d = new Date();
 
 		// formaty
@@ -135,13 +135,17 @@ class DateFormatClass {
 class LocaleClass {
 	void examples() {
 
-		System.out.println(">>>>LocaleClass<<<<<");
+		System.out.println("------------------LocaleClass--------------");
 		// constructors
 		Locale l_pl1 = new Locale("pl"); // ISO 639 Language Code
 		Locale l_pl2 = new Locale("pl", "PL"); // + ISO Country Code
 		Locale l_en = new Locale("en", "GB");
 		Locale l_it = new Locale("it", "IT");
 		Locale l_unsupported = new Locale("uk");
+		
+		// pobranie domyslnej lokalizacji
+		Locale l = Locale.getDefault();
+		System.out.println("Default locale: " + l.getDisplayName());
 
 		// DateFormat i NumberFormat moga miec ustawione lokale TYLKO podczas
 		// tworzenia (getInstance)
@@ -166,19 +170,24 @@ class LocaleClass {
 
 		// Locale.setDefault() - ustawianie domyslnej lokalizacji
 		Locale.setDefault(l_en);
-
 	}
 }
 
+/**
+ * 
+ * ZASADY:
+ * 	1. standardowy format (NumberFormat.getInstance()) ZAOKRAGLA w gore liczbe do 3 miejsc po przecinku
+ */
 class NumberFormatClass {
 	void examples() {
-		System.out.println(">>>>NumberFormatClass<<<<<");
+		System.out.println("------------------NumberFormatClass--------------");
 
 		// tworzenie przez getInstance...
 		NumberFormat f = NumberFormat.getInstance();
 		NumberFormat f1 = NumberFormat.getCurrencyInstance(new Locale("pl",
 				"PL"));
-		String n = f.format(232);
+		// domyslnie formatuje na 3 cyfry po przecinku i ZAOKRAGLA! -> 232.272
+		String n = f.format(232.27183);	
 		String n1 = f1.format(232);
 
 		System.out.println(n);
@@ -189,9 +198,11 @@ class NumberFormatClass {
 		// setMaximumFractionDigits() - ustawia powyzsze
 		int max = f1.getMaximumFractionDigits();
 		System.out.println("max fraction: " + max);
+		System.out.println(f1.format(1234.222123));
 		f1.setMaximumFractionDigits(5);
+		System.out.println(f1.format(1234.222123));
 
-		// setParseIntegerOnly() - ustala parsowanie Stringa jako integery
+		// setParseIntegerOnly() - ustala parsowanie tylko czesci bez przecinka 
 		try {
 			System.out.println(f.parse("42343.22"));	// -> 42343.22 
 			f.setParseIntegerOnly(true);
