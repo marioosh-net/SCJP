@@ -10,7 +10,7 @@ import java.util.Locale;
 /**
  * Working with Dates, Numbers, and Currencies
  */
-public class Dates {
+public class DatesAndNumbers {
 	static public void main(String[] args) {
 		new DateClass().examples();
 		new CalendarClass().examples();
@@ -107,7 +107,7 @@ class DateFormatClass {
 		dfa[0] = DateFormat.getInstance();
 		dfa[1] = DateFormat.getDateInstance();
 		dfa[2] = DateFormat.getDateInstance(DateFormat.SHORT); // rozne style
-																// formatowania
+		// formatowania
 		dfa[3] = DateFormat.getDateInstance(DateFormat.MEDIUM);
 		dfa[4] = DateFormat.getDateInstance(DateFormat.LONG);
 		dfa[5] = DateFormat.getDateInstance(DateFormat.FULL);
@@ -173,14 +173,32 @@ class LocaleClass {
 class NumberFormatClass {
 	void examples() {
 		System.out.println(">>>>NumberFormatClass<<<<<");
-		
-		// tworzenie przez getInstance... 
+
+		// tworzenie przez getInstance...
 		NumberFormat f = NumberFormat.getInstance();
-		NumberFormat f1 = NumberFormat.getCurrencyInstance(new Locale("pl","PL"));
+		NumberFormat f1 = NumberFormat.getCurrencyInstance(new Locale("pl",
+				"PL"));
 		String n = f.format(232);
 		String n1 = f1.format(232);
-		
+
 		System.out.println(n);
 		System.out.println(n1);
+
+		// getMaximumFractionDigits() - zwraca maksymalna ilosc miejsc po
+		// przecinku dla danego formatu
+		// setMaximumFractionDigits() - ustawia powyzsze
+		int max = f1.getMaximumFractionDigits();
+		System.out.println("max fraction: " + max);
+		f1.setMaximumFractionDigits(5);
+
+		// setParseIntegerOnly() - ustala parsowanie Stringa jako integery
+		try {
+			System.out.println(f.parse("42343.22"));	// -> 42343.22 
+			f.setParseIntegerOnly(true);
+			System.out.println(f.parse("42343.22"));	// -> 42343
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
