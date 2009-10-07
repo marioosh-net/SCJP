@@ -83,8 +83,8 @@ public class Regex {
 		searchIndexs(a, expr); // 3 7
 
 		// greedy * (zachlanny)
-		// greedy w rzeczywistosci czyta caly lancuch i dziala od prawej do lewej,
-		// az znajdzie najwiekszy (najdalej na prawo) pasujacy lancuch 
+		// greedy bierze pod uwage caly lancuch i szuka mozliwie 
+		// najdluzszego dopasowania (siegajacego najdalej na prawo)
 		a = "yyxxxyxx";
 		expr = ".*xx";
 		searchIndexs(a, expr); // 0 - cale wyrazenie
