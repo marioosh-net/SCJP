@@ -27,13 +27,15 @@ public class Serialization {
       Book book = new Book("Hobbit");
       book.setAuthor(new Author("B.Prus"));
       Dog d = new Dog();
-
+      book.stat1 = 14;
+      
       FileOutputStream f = new FileOutputStream("book.ser");
       ObjectOutputStream o = new ObjectOutputStream(f);
       o.writeObject(book);
       o.writeObject(d);
       o.close();
 
+      System.out.println("static before serialize: " + book.stat1);
       System.out.println("date before serialize: " + book.getDate());
       System.out.println("bar before serialize: " + book.bar.x);
 
@@ -53,6 +55,7 @@ public class Serialization {
       o.close();
 
       System.out.println(book.getTitle());
+      System.out.println("static after serialize: " + book.stat1);
       System.out.println("date after serialize: " + book.getDate());
       System.out.println("library after serialize: " + book.getLibrary().name);
       System.out.println("obj after serialize: " + (String) book.obj);
@@ -77,6 +80,7 @@ class Book implements Serializable {
   private transient Library library = new Library("Biblioteka");
   transient Object obj = new Object();  // Object nie jest Serializable dlatego musi byc transient !!
   Bar bar = new Bar();
+  static int stat1 = 10;
 
   Book(String title) {
     this.title = title;
@@ -162,6 +166,7 @@ class Library {
 class Bar implements Serializable {
 
   transient int x = 42; // po deserializacja x bedzie rowny 0 !!!
+  static int y = 10;	// statyczne nie sa serializowane - po deserializacji bedzie rowna tyle ile przed. 
 }
 
 /**
