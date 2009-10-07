@@ -5,10 +5,10 @@ import java.io.Console;
 /**
  * klasa java.io.Console
  */
-public class jConsole {
+public class IOConsole {
 
   public static void main(String[] args) {
-    new jConsole().doit();
+    new IOConsole().doit();
   }
 
   void doit() {
