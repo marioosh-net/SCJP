@@ -1,3 +1,6 @@
+package ch2;
+//import Test;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.

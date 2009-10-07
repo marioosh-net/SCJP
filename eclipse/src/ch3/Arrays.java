@@ -1,3 +1,7 @@
+package ch3;
+import ch2.Animal;
+import ch2.Dog;
+
 
 public class Arrays {
 

@@ -1,3 +1,5 @@
+package ch1;
+
 
 public class Constructors2 {
   public static void main(String[] a) {

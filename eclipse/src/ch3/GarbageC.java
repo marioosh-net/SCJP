@@ -1,3 +1,4 @@
+package ch3;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -13,7 +14,7 @@
  * zmienne lokalne (w metodzie) sa po zakonczeniu metody dostepne dla GC, chyba ze metoda
  * zwraca referencje do takiej zmiennej (obiektu) lokalnej.
  */
-public class Ch3_Garbage {
+public class GarbageC {
 
   public static void main(String[] args) {
 
@@ -46,7 +47,7 @@ public class Ch3_Garbage {
     // suggest for garbage collections
     // to tylko zasugerowanie JVM, niekoniecznie to zadzaiala!!
     System.gc();
-    new Ch3_Garbage().finalize();
+    new GarbageC().finalize();
   }
 
   public void finalize() {

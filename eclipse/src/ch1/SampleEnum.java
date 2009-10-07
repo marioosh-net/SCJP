@@ -1,3 +1,4 @@
+package ch1;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,7 +11,7 @@
 
 import package1.*;
 
-public class NewClass1 {
+public class SampleEnum {
   Seasons s = Seasons.FALL;
 
   public static enum Colors1{RED, GREEN, BLUE};

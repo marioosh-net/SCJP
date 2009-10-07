@@ -1,3 +1,6 @@
+package ch3;
+import ch2.Test;
+
 
 /**
  *
