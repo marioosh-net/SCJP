@@ -12,10 +12,10 @@ package ch7;
  * 3. w kodzie przeslaniajecej metody equals(), nalezy wykorzystac test: czy X
  * instanceof Y
  */
-public class Equals {
+public class EqualsAndHashCode {
 	static public void main(String[] args) {
-		new Equals().examples();
-		new Equals().hashCodes();
+		new EqualsAndHashCode().examples();
+		new EqualsAndHashCode().hashCodes();
 	}
 
 	void examples() {
