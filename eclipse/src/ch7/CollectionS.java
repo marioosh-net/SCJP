@@ -12,6 +12,10 @@ import java.util.*;
  * interfejsy do opanowania:
  * - TAK dzidzicza z Collection: Set, List, Queue
  * - NIE -------------------||-: Map
+ * 
+ * Autoboxing:
+ * od Javy 5 mozna dodawac do kolekcji typy primitywne (col.add(23);)
+ * 
  */
 public class CollectionS {
 	static public void main(String[] args) {
@@ -21,6 +25,11 @@ public class CollectionS {
 	void examples() {
 		new Lists();
 		new Sets();
+		new Maps();
+		new Queues();
+
+		new ArrayLists().using();
+		new Sortowanie().examples();
 	}
 }
 
@@ -129,7 +138,10 @@ class Sets {
  * 
  * HashMap - unsorted, unordered
  * Hashtable - stary (thread safe (synchronized) HashMap)
- * LinkedHashMap - unsorted, ordered (szybsze iteracje, wolniejsze dodawanie usuwanie)
+ * LinkedHashMap - unsorted, ordered (szybsze iteracje, wolniejsze dodawanie
+ * usuwanie)
+ * TreeMap - jest posortowany wg kluczy (np. jak klucz jest String, to moze byc
+ * alfabetycznie)
  * 
  */
 class Maps {
@@ -139,22 +151,22 @@ class Maps {
 		 * HashMap
 		 */
 		// key,value
-		HashMap<Elem,Object> hm = new HashMap<Elem,Object>();
-		hm.put(new Elem(), new Object());	// put (nie add!!!)
+		HashMap<Elem, Object> hm = new HashMap<Elem, Object>();
+		hm.put(new Elem(), new Object()); // put (nie add!!!)
 		Elem key = new Elem();
-		hm.remove(key);	// pobierz wartosc dla klucza i USUN
-		hm.get(key);	// pobierz wartosc dla klucza
-		
+		hm.remove(key); // pobierz wartosc dla klucza i USUN
+		hm.get(key); // pobierz wartosc dla klucza
+
 		/**
 		 * Hashtable
 		 */
-		Hashtable<Object,Object> ht = new Hashtable<Object,Object>();
-		
+		Hashtable<Object, Object> ht = new Hashtable<Object, Object>();
+
 		/**
 		 * LinkedHashMap
 		 */
-		LinkedHashMap<Object,Object> lhm = new LinkedHashMap();
-		
+		LinkedHashMap<Object, Object> lhm = new LinkedHashMap();
+
 	}
 }
 
@@ -162,11 +174,78 @@ class Maps {
  * 
  * interfejs Queue
  * 
+ * FIFO queue
+ * 
  */
 class Queues {
-
+	Queues() {
+		PriorityQueue pq = new PriorityQueue();
+		pq.add(new Object());
+		pq.remove();// rzuca wyjatek jak kolejka jest pusta;	
+		pq.poll(); // = remove(), ale nie rzuca wyjatku	
+	}
 }
 
 class Elem {
 
+}
+
+/**
+ * Examples
+ */
+class ArrayLists {
+	void using() {
+		/**
+		 * ArrayList zamiast tablicy:
+		 * - rosnie dynamicznie! (nie trzeba podawac rozmiary jak w tablicach)
+		 */
+		ArrayList al = new ArrayList();
+		al.add(new String("ala"));
+		al.add("ala");
+		System.out.println(al.size());
+		System.out.println(al.contains("ala")); // czy zawiera ?
+
+		/**
+		 * Autoboxing
+		 */
+		List myInts = new ArrayList(); // przed Java 5
+		myInts.add(new Integer(42)); // had to wrap an int
+
+		// autoboxing!!!!
+		myInts.add(42); // od Javy5: autoboxing handles it!
+	}
+}
+
+/**
+ * Sortowanie kolekcji
+ */
+class Sortowanie {
+	void examples() {
+		ArrayList<String> al = new ArrayList<String>();
+		al.add("Wojtek");
+		al.add("Ala");
+		al.add("Zenon");
+		al.add("Tomek");
+
+		System.out.println("unsorted: " + al);
+		// sortowanie alfabetyczne
+		Collections.sort(al);
+		System.out.println("sorted: " + al);
+
+		// sortowanie za pomoca interfejsu komparatora
+		Collections.sort(al, new ComparatorMy());
+
+	}
+}
+
+class ComparatorMy implements Comparator {
+
+	@Override
+	public int compare(Object arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		if(arg0 instanceof String && arg1 instanceof String && arg0 != null && arg1 != null) {
+		
+		}
+		return 0;
+	}
 }
