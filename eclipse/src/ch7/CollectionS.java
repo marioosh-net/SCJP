@@ -228,24 +228,39 @@ class Sortowanie {
 		al.add("Tomek");
 
 		System.out.println("unsorted: " + al);
-		// sortowanie alfabetyczne
+		// sortowanie alfabetyczne (String jest z defaultu Comparable)
 		Collections.sort(al);
 		System.out.println("sorted: " + al);
 
-		// sortowanie za pomoca interfejsu komparatora
-		Collections.sort(al, new ComparatorMy());
+		// sortowanie za pomoca interfejsu Comparable
+		ArrayList<BookUnComparable> ubooks = new ArrayList<BookUnComparable>();
+		//Collections.sort(ubooks); // error
+
+		ArrayList<MyBook> books = new ArrayList<MyBook>();
+		Collections.sort(books);
 
 	}
 }
 
-class ComparatorMy implements Comparator {
+/**
+ * Comparable interface
+ * teraz klasa moze byc sortowana przez Collections.sort();
+ */
+class BookUnComparable {
 
+}
+
+class MyBook implements Comparable<MyBook> {
+	String title;
+
+	/*
+	 * o > b => o.compareTo(b) = 1
+	 * o == b => o.compareTo(b) = 0
+	 * o < b => o.compareTo(b) = -1
+	 */
 	@Override
-	public int compare(Object arg0, Object arg1) {
+	public int compareTo(MyBook o) {
 		// TODO Auto-generated method stub
-		if(arg0 instanceof String && arg1 instanceof String && arg0 != null && arg1 != null) {
-		
-		}
-		return 0;
+		return title.compareTo(o.title);
 	}
 }
