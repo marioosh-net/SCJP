@@ -12,14 +12,14 @@ import java.util.Comparator;
  * w kolekcji lub talicy musza byc obiekty, ktore sa porownywalne bezproblemowo
  * (np. w tablicy Object[] nie moga wystapic obiekty Cat i Dog jednoczesnie)
  * 
- * Comparable interface - compareTo(Object drugi)
- * Comparator interface - compare(Object a, Object b)
+ * Comparable interface - compareTo(Object drugi) - modyfikujemy klase, ktorej obiekty bede sortowane
+ * Comparator interface - compare(Object a, Object b) - tworzymy nowa klase, mozna wiele roznych sortowan 
  */
 public class Sort {
 	static public void main(String[] args) {
 		new Sortowanie().examples();
-
 		new SortingArrays().examples();
+		new Searching().examples();		
 	}
 }
 
@@ -104,5 +104,24 @@ class SortingArrays {
 			System.out.print(e + ",");			
 		}
 
+	}
+}
+
+/**
+ * Searching Arrays and Collections
+ * 
+ * Arrays.binarySearch();
+ */
+class Searching {
+	void examples() {
+		System.out.println("binarySearch()...");
+		String [] sa = {"one", "two", "three", "four"};
+		Arrays.sort(sa);
+		int i = Arrays.binarySearch(sa, "two");
+		System.out.println("binarySearch: " + i);	// -> binarySearch: 3
+		i = Arrays.binarySearch(sa, "tw");
+		System.out.println("binarySearch: " + i);	// -> binarySearch: -4
+		i = Arrays.binarySearch(sa, "xxx");
+		System.out.println("binarySearch: " + i);	// -> binarySearch: -5
 	}
 }
