@@ -7,7 +7,8 @@ public class Console {
 		// czyta linie z konsoli
 		String s = console.readLine();
 		
-		// czyta haslo z konsoli
-		char[] pw = console.readPassword("%s", "");
+		// czyta haslo z konsoli (zwraca char[], nie String !!!)
+		char[] pw = console.readPassword("%s", "password: ");
+
 	}
 }

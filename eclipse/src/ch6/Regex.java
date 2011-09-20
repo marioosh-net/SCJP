@@ -28,6 +28,14 @@ public class Regex {
 
 	static public void main(String[] args) {
 		new Regex().test();
+		
+		System.out.println("=====================");
+		Pattern p = Pattern.compile("ab");
+		Matcher m = p.matcher("aabaababab");
+		while(m.find()) {
+			System.out.println(m.start() + ":" + m.group());
+		}
+		
 	}
 
 	void test() {
