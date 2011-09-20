@@ -64,7 +64,7 @@ public class Strings {
 
 /**
  * StringBuffer  (thread safe)
- * StringBuilder (not thread safe)
+ * StringBuilder (not thread safe - szybszy)
  */
 class SBufferBuilder {
 

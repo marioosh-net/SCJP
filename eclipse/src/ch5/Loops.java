@@ -55,6 +55,11 @@ public class Loops {
      */
     for (; i < 10;) { // dzala jak while(i < 10)
     }
+    
+    // ok
+    for(int x,y = 0;;);
+    // ale zle
+    for(int z = 1, int x=0;;);
 
     /**
      * petla for, rozne takie...
@@ -119,6 +124,9 @@ class EnhancedFor {
     int x = 1;
     int collection[] = {1, 2, 3, 4, 5};
 
+    etykieta1:
+    
+    etykieta:	// mozna dac etykiete
     for (Integer element : collection) {
       System.out.println(element);
     }
@@ -128,7 +136,15 @@ class EnhancedFor {
     for (Object element : new char[]{'a', 'b'}) {
       System.out.println(element);
     }
-
+    
+    
+    // ok
+    // longiem przegladamy inty
+    for(long y: new int[]{}) {}
+    // ALE zle
+    // intem nie mozna przegladac tablicy longow
+    for(int x: new long[]{}) {}
+    
   }
 
   int[] getArr() {

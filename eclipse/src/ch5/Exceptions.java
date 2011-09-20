@@ -1,5 +1,8 @@
 package ch5;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * Exceptions
@@ -78,6 +81,22 @@ public class Exceptions {
       System.out.println(w1);
     } catch (java.lang.ClassCastException e) {
     } catch (java.lang.ArithmeticException e) { // compilation error - wyjatek zostal juz przechwycony (wyzej)
+    }
+    
+    // WYJATEK od wykonania bloku finally - brutalne przerwanie programu
+    try {
+    	System.exit(0);
+    } catch (Exception e) {
+    } finally {
+    	// to sie nigdy nie wykona
+    }
+    
+    // ZLE - nie mozemy sprawdzac CheckedException, ktory nigdy nie wystapi
+    // ale mozemy tak sprawdzac UnCheckedException
+    try {
+    	File f = new File("test.t");
+    } catch (IOException e) {
+    	
     }
   }
 }
