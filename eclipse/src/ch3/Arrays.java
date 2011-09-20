@@ -95,7 +95,7 @@ public class Arrays {
       }
     }
     ;  // nie mozna podawac rozmiaru, gdy jest inicjalizacja
-    u = new int[]{{1, 2}, {2, 3}};     // inicjalizacja dla tablicy 2-wymiarowej
+    u = new int[][]{{1, 2}, {2, 3}};     // inicjalizacja dla tablicy 2-wymiarowej
 
 
     // interfejs jako typ tablicowy
