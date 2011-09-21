@@ -3,7 +3,7 @@ package ch9;
 /**
  * - watki startujemy **ZAWSZE** z obiektu Thread przez uzycie start(); 
  * 
- * @author ZETO
+ * @author marioosh
  *
  */
 public class Threads {

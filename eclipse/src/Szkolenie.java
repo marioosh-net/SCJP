@@ -1,6 +1,6 @@
 /**
  * szkolenie zeto
- * @author ZETO
+ * @author marioosh
  *
  */
 public class Szkolenie {
