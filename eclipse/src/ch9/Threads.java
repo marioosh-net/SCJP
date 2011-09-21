@@ -1,5 +1,11 @@
 package ch9;
 
+/**
+ * - watki startujemy **ZAWSZE** z obiektu Thread przez uzycie start(); 
+ * 
+ * @author ZETO
+ *
+ */
 public class Threads {
 	
 	public static void main(String[] args) {

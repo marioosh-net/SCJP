@@ -1,5 +1,11 @@
 package ch2;
 
+/**
+ * Overriding
+ * mozna overridowac zwracajac typ bardziej szczegolny
+ * ale NIE MOZNA overridowac zwracajac typ bardziej ogolny (wyzej w drzewie dziedziczenia)
+ * 
+ */
 public class Overloading_Overriding {
 
   static public void main(String[] a) {
@@ -25,6 +31,33 @@ class Over1 {
   void one(int[] i) {
   System.out.println("B");
   }*/
+  
+  public Object getObject() {
+	  return 1;
+  }
+	public Integer getInteger() {
+		return 1;
+	}
+}
+
+class Over2 extends Over1 {
+
+	/**
+	 * mozna overridowac zwracajac typ bardziej szczegolny
+	 */
+	@Override
+	public Integer getObject() {
+		return null;
+	}
+
+	/**
+	 * ale nie mozna overridowac zwracajac typ bardziej ogolny (wyzej w drzewie dziedziczenia)
+	 */
+	// The return type is incompatible with Over1.getInteger()
+	public Object getInteger() {
+		return null;
+	}
+	
 }
 
 /**
