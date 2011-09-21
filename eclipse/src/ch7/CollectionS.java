@@ -166,6 +166,27 @@ class Maps {
 		 */
 		LinkedHashMap<Object, Object> lhm = new LinkedHashMap();
 
+		
+		// mapa posortowana wg alfabetu
+		TreeMap<String, String> map = new TreeMap();
+		map.put("a", "ala");
+		map.put("w", "wacek");
+		map.put("j", "jacek");
+		
+		/**
+		 * submapa
+		 * Dodawanie do submapy dodaje równoczeœnie do mapy i odwrotnie
+		 * ale elementy do submapy s¹ dodawane tylko jeœli mieszczê siê w zakresie
+		 */
+		SortedMap sub = map.subMap("a", "w");
+		System.out.println(sub);	// {a=ala, j=jacek}, UWAGA: wacka nie ma!!!
+		
+		map.put("r", "romek");
+		// sub.put("w", "wojtek");		// java.lang.IllegalArgumentException, bo zakres submapy ("a" - wlacznie, "w" - wylacznie)
+		sub.put("a", "adam");		// ALE to wejdzie do submapy
+									// dodatkowo **przykryje** ale
+		System.out.println(sub);	// {a=adam, j=jacek, r=romek}
+		System.out.println(map);	// {a=adam, j=jacek, r=romek, w=wacek}
 	}
 }
 

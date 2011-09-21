@@ -1,3 +1,4 @@
+package ch8;
 /**
  * Tworzac klase anonimowa robimy tak naprawdê podklasê (extends)
  * 
@@ -21,5 +22,6 @@ public class AnonymousClasses {
 				System.out.println("anonymous popcorn");
 			}
 		};
+		p.pop();
 	}
 }

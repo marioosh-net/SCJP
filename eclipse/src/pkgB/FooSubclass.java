@@ -8,7 +8,10 @@ package pkgB;
 import pkgA.Foo;
 
 /**
- * 
+ *	Typ rerefencji decyduje o dostepie do zmiennych X.a, 
+ *  a typ obiektu decyduje o dostepie do metod (polimorfizm)
+ *  
+ *   
  * @author muniek
  */
 public class FooSubclass extends Foo {

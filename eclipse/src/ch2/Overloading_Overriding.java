@@ -1,5 +1,7 @@
 package ch2;
 
+import NullClass;
+
 /**
  * Overriding
  * mozna overridowac zwracajac typ bardziej szczegolny
@@ -495,6 +497,19 @@ class VerySimpleCalculator {
     System.out.println("Result:" + result);
   }
 }
+
+class NullClass {
+	public void test() {
+		// The method t(Long) is ambiguous for the type NullClass
+		new NullClass().t(null);
+		
+		// ale tak juz ok
+		new NullClass().t((Long)null);
+	}
+	public void t(Long l) {}
+	public void t(Integer i) {}
+}
+
 
 /**
  * OGOLNE ZASADY dotyczace przeciazania metod przy pomocy boxingu, wideningu i var-args:

@@ -52,6 +52,13 @@ public class Arrays {
     pets[1] = new Animal();
     pets[2] = new Animal();
 
+    String[] s1 = {"Jacek", "Placek"};
+    String[] s2 = new String[]{"Jacek", "Placek"};
+    
+    Integer[] i1 = new Integer[2];
+    Object[] i2 = i1;		// ok
+    i2[0] = new Object();	// ALE: runtime error!!!!, bo Object NIE "IS-A" Integer 
+    
     int[] x = new int[5];
     x[7] = 3; // runtime ArrayIndexOutOfBoundsException // compile ok
 
