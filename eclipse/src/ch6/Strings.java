@@ -8,7 +8,35 @@ public class Strings {
     new Strings().methods();
   }
 
+  class A{}
+  class B{
+	  public String toString(){return "B";}
+  }
   Strings() {
+	  String s;
+	  A a = new A();
+	  B b = new B();
+	  B b1;
+	  B[] tab = new B[2];
+	  
+	  s = 1 + "a" + 1;	// 1a1
+	  System.out.println("s = " + s); s = null;
+	  s = 1 + 1 + "a";	// 2a
+	  System.out.println("s = " + s); s = null;
+	  s = 1 + "a" + a;	// 1ach6.Strings$A@1e5e2c3
+	  System.out.println("s = " + s); s = null;
+	  
+	  // nie umie 1 dodac do obiektu nienumerycznego
+	  s = 1 + a + "a";
+	  
+	  s = "a" + a + b;	// ach6.Strings$A@1e5e2c3B
+	  System.out.println("s = " + s); s = null;
+	  s = "a" + b + tab; // aB[Lch6.Strings$B;@18a992f
+	  System.out.println("s = " + s); s = null;
+	  
+	  // nie zaincjalizowane b1
+	  s = "a" + b1;
+	  
   }
 
   // NAJWAZNIEJSZE O STRINGACH:
