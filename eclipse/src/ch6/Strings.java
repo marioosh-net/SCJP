@@ -13,6 +13,10 @@ public class Strings {
 	  public String toString(){return "B";}
   }
   Strings() {
+	  
+	  /**
+	   * konkatenacje
+	   */
 	  String s;
 	  A a = new A();
 	  B b = new B();

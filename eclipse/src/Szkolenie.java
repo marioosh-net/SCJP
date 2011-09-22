@@ -1,5 +1,5 @@
 /**
- * szkolenie zeto
+ * szkolenie
  * @author marioosh
  *
  */
