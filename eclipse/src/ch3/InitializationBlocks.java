@@ -56,3 +56,13 @@ public class InitializationBlocks {
   }
 }
 
+class Initialization {
+	{ x = 2; }	// przypisanie ok
+	int x =1;
+	
+	{ y += 1; }	// bo czytamy
+	int y = 1;
+	
+	int z = 1;
+	{ z += 1; }	// juz ok, bo jest nizej
+}
