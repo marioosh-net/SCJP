@@ -1,6 +1,6 @@
 
 public class Debug {
-
+	
   {
     System.out.println("2 instancyjne");
   }  // wykona sie przed utworzeniem obiektu (przed konstruktorem)
