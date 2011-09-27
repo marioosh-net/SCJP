@@ -6,24 +6,46 @@ package ch9;
  * @author marioosh
  *
  */
+
+class MyThread extends Thread {
+	public void run() {
+		System.out.println("run "+Thread.currentThread().getName());
+	}
+
+	// to jest ignorowane, bo to jest przeladowanie metody run()
+	public void run(String s) {
+		System.out.println("String in run is " + s);
+	}
+}
+
+class MyThreadByRunnable implements Runnable {
+
+	@Override
+	public void run() {
+		System.out.println("run (Runnable) "+Thread.currentThread().getName());
+	}
+
+}
 public class Threads {
 	
 	public static void main(String[] args) {
 		
 		/**
-		 * 1 sposób (extends Thread)
+		 * 1 sposï¿½b (extends Thread)
 		 */
 		MyThread t = new MyThread();
-		t.start(); // startujemy w¹tek
+		t.start(); // startujemy wÄ…tek
 		
 		/**
-		 * 2 sposób (implements Runnable)
+		 * 2 sposï¿½b (implements Runnable)
 		 */
 		MyThreadByRunnable t2 = new MyThreadByRunnable();
-		new Thread(t2).start(); // startujemy w¹tek
+		new Thread(t2).start(); // startujemy wÄ…tek
+		new Thread(t2).start();	// mozna wiecej watkow robiacych to samo
+		new Thread(t2).start(); // ...
 		
 		/**
-		 * mo¿na te¿ tak, bo Thread implements Runnable
+		 * moÅ¼na teÅ¼ tak, bo Thread implements Runnable
 		 */
 		Thread t3 = new Thread(new MyThread());
 		t3.start();
@@ -31,6 +53,9 @@ public class Threads {
 		/**
 		 * UWAGA
 		 */
-		t.run(); // metoda siê wykona, ale nie wystartuje w¹tku !!!
+		t.run(); // metoda siÄ™ wykona, ale nie wystartuje wÄ…tku !!!
+		
+		System.out.println(Thread.currentThread().getName());
 	}
 }
+

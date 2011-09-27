@@ -23,6 +23,9 @@ public class Switch {
   Switch() {
     int expression = 2;
 
+    switch(30) {
+    case 2: System.out.println("OWOWO");
+    }
     switch (expression) {
       case 1:
         System.out.println("1");

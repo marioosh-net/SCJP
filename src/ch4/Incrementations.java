@@ -27,7 +27,20 @@ public class Incrementations {
 		 * a tutaj juz bedzie wartosc zmiennej (++s -> zmienna), nie mozna robic 2++;
 		 */
 		s = 7;
-		s+=++s++;	// Invalid argument to operation ++/--
+		// s+=++s++;	// Invalid argument to operation ++/--
 		System.out.println(s);
+		
+		int x = 1;
+		/**
+		 * (1 + x++)
+		 * (1 + 2++)
+		 * (1 + 2)	=> 3, a potem 2++ => 3
+		 */
+		System.out.println(x++ + x++);	// 3
+		System.out.println(x);	// 3
+		
+		int y = 1;
+		System.out.println(y++);	// 1
+
 	}
 }

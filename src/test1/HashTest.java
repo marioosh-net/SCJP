@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class HashTest {
+public class HashTest implements Comparable<Object> {
     
     private String str;
     
@@ -36,4 +36,10 @@ public class HashTest {
             System.out.print(o + " ");
         }
     }
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

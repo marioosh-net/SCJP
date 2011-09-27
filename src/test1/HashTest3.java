@@ -16,8 +16,10 @@ public class HashTest3 {
     }
     
     @Override
-    public boolean equals(Object obj) { 
-        return this.str.equals(obj);	// ??? jakim cudem porownal stringa z HashTest ?
+    public boolean equals(Object obj) {
+        return this.str.equals(obj);	// dla obiektow HashTest3 bedzie w pewnym momencie 
+        								// porownanie "1" z "test1.HashTest3@31" (obj.toString())
+        								// lub "test1.HashTest3@31" z "test1.HashTest3@32"
     }
     
     public static void main(String args[]) {
@@ -32,6 +34,6 @@ public class HashTest3 {
         hs.add(s1);
         hs.add(s2);
         
-        System.out.print(hs.size());
+        System.out.print(hs);
     }
 }

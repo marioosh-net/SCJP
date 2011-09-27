@@ -1,13 +1,13 @@
 package test1;
 
-class HotelX {
+class BaseHotel {
     public int bookings;
     public void book() {
         bookings++;
     }
 }
 
-public class SuperHotel extends HotelX {
+public class Hotel extends BaseHotel {
     public void book() {
         bookings--;
     }
@@ -19,11 +19,7 @@ public class SuperHotel extends HotelX {
     }
     
     public static void main(String args[]) {
-        HotelX hotel = new SuperHotel();
-        
-        // typ referencji wskazuje ktora metoda sie wykona,
-        // ale obiekt na ktory referencja wskazuje, na ktorym obiekcie sie ta metoda wykona
-        // w tej sutuacji kompilator nie widzi ze HotelX nie ma metody book(int)
+        Hotel hotel = new Hotel();
         hotel.book(2);
         System.out.print(hotel.bookings);
     }
