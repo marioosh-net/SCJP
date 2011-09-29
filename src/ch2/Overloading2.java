@@ -31,3 +31,10 @@ public class Overloading2 {
     o.doStuff(animalRefToHorse); // tutaj pojdzie: doStuff(AnimalX a)
   }
 }
+
+class A {
+	void test() {};
+}
+class B extends A {
+	abstract void test();
+}

@@ -4,6 +4,8 @@
  */
 package pack2;
 
+import java.io.Serializable;
+
 
 /**
  *
@@ -46,5 +48,7 @@ class Enums {
 
   public static void main(String[] args) {
     System.out.println(a.DOG.sound + " " + a.FISH.sound);
+    Animals.DOG.sound = "HAU";	// ok
   }
 }
+

@@ -14,7 +14,8 @@ public class MainTest {
 		String stmt = "JavaChamp is here to help you";
 		for (String token : stmt.split("\\f")) {
 			System.out.print(token + " ");
-		}		
+		}
+		out.println(2%3);
 		
 	}
 	

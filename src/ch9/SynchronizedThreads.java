@@ -33,6 +33,8 @@ package ch9;
  *	SYNCHRONIZACJA WATKOW:
  *	- synchronized moze byc uzyte dla metody lub bloku
  *	- w przypadku bloku trzeba podac na czym (zazwyczaj obiekt, np. this) ma byc synchronizacja
+ *
+ *	Uzycie notify(); jesli nie posiadamy locka lub poza blokiem synchronized // => java.lang.IllegalMonitorStateException
  *		
  */
 public class SynchronizedThreads {
