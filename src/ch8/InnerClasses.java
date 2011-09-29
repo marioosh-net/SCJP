@@ -1,6 +1,12 @@
 package ch8;
 
 /**
+ * WAZNE:
+ * 		klasa wewnetrzna ma dostep do wszystkich membrow (nawet private)
+ * 		klasy zewnetrznej,
+ * 		oczywiscie klasa wew. static ma dostep tylko do zmiennych statycznych
+ * 		klasy zewnetrznej 
+ * 
  * klasa wewnetrzna moze miec modyfikatory takie jak membry:
  * 		final 
  *  	abstract
@@ -15,7 +21,14 @@ package ch8;
  *
  */
 public class InnerClasses {
-
+	static int Static;
+	
+	// klasa moze byc statyczna tak jak member
+	static class Air {
+		public Air() {
+			System.out.println(Static);	// ok, bo statyczna
+		}
+	}
 	class Engine {
 		// blok inicjalizacyjny
 		{
@@ -37,9 +50,15 @@ public class InnerClasses {
 		new TestOuter().t();
 		
 		/*
-		 *  tworzenie klasy wewnetrznej
+		 *  tworzenie klasy wewnetrznej non-static
 		 */
 		new Outer().new Inner();
+		
+		/*
+		 * tworzenie static inner class Air
+		 */
+		new InnerClasses.Air();
+		
 		// not visible
 		/*
 		new Outer().new InnerPrivate();
@@ -103,3 +122,4 @@ class TestOuter {
 		TestOuter.this.t2();		
 	}
 }
+

@@ -9,6 +9,6 @@ public class Console {
 		
 		// czyta haslo z konsoli (zwraca char[], nie String !!!)
 		char[] pw = console.readPassword("%s", "password: ");
-
+		
 	}
 }
