@@ -39,6 +39,13 @@ public class CopyPaste {
 		b = new Book();
 		b.setIsbn("111");
 		System.out.println(bs.getNumberOfCopies(b));
+		
+		System.out.println("a"+'b'+63);
+		System.out.println("a"+63);
+		System.out.println('b'+new Integer(63));
+		String s1 = 'b'+63+"a";
+		// String s2 = 63 + new Integer(10);
+
 	}
 }
 

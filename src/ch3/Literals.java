@@ -27,6 +27,10 @@ public class Literals {
     integers();
     longs();
     floatingPoints();
+    
+    int i = 0;
+    char ch = 'a';
+    i = Character.getNumericValue('a');
   }
 
   static void integers() {
@@ -39,6 +43,8 @@ public class Literals {
     // 10 = (od lewej) 0 * 8^0 + 1 * 8^1 + 0 * 8^2 = 8
     // 70 = 7 * 8^1 = 56
     int j = 010; // 8
+    int oc = 0007;	// ocatl (0-7)
+    int oc1 = 0008;	// blad!!!
     System.out.println(j);
 
     //hexadecimal - 0x na początku
@@ -90,7 +96,6 @@ public class Literals {
     // wymaga rzutowania, zeby przeszlo!
     char t1 = 70000; // error, 7000 jest poza zakresem char (2^16 = ok. 65000)
     char t2 = (char) 70000;
-
   }
 
   void otherInfos() {

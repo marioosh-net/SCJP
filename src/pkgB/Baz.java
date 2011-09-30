@@ -6,8 +6,9 @@ public class Baz {
 
   public static void main(String[] args) {
     Foo f = new Foo();
-    System.out.print(" " + f.a);	// a ma dostêp domyœlny (pakietowy)
-    System.out.print(" " + f.b);	// b jest protected, st¹d nie bêdzie dostepny poza drzewem dziedziczenia  
+    System.out.print(" " + f.a);	// a ma dostï¿½p domyï¿½lny (pakietowy)
+    System.out.print(" " + f.b);	// b jest protected, stï¿½d nie bï¿½dzie dostepny poza drzewem dziedziczenia  
     System.out.println(" " + f.c);	// c jest public, ok
+
   }
 }

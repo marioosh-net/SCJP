@@ -12,6 +12,12 @@ import ch2.Test;
  * natomiast jak jest wartoscia, to nie zmienimy oryginalnej zmiennej !!!!
  *
  * prymitiwne sa przekazywane zawsze przez wartosc
+ * 
+ * UWAGA: tablica jest obiektem, wiec przekazywanie jej to przekazywanie referencji
+ * wiec: 
+ *          int[]a = {1};
+ *          test(a);  // zmieni wartosc w tablicy
+ * 			test(int[] a) { a[0] = 2; }  
  */
 public class PassingVariablesToMethods {
 
@@ -106,3 +112,4 @@ class Foo {
     System.out.println("f.myBar.barNum after changeIt is " + f.myBar.barNum);
   }
 }
+

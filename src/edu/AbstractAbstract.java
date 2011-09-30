@@ -10,3 +10,4 @@ abstract class Calculator
 		x.calculate();
 	}
 }
+

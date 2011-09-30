@@ -5,6 +5,12 @@ class A {
         B b = new B();
         b.dobB();
         System.out.print("doA");
+        
+        try {
+        	
+        } catch (RuntimeException e) {
+        	
+        }
     }
 }
 
