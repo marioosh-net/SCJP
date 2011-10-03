@@ -1,6 +1,7 @@
 package ch5;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -89,6 +90,20 @@ public class Exceptions {
     } catch (Exception e) {
     } finally {
     	// to sie nigdy nie wykona
+    }
+    
+    // UWAGA:
+    try {
+    	throw new FileNotFoundException();
+    	int k = 1;	// Unreachable code !!!
+    } catch (Exception e) {
+    	
+    }
+    
+    try {
+    	File f = new File("sss");
+    } catch (Exception e) {
+    	
     }
     
     // ZLE - nie mozemy sprawdzac CheckedException, ktory nigdy nie wystapi

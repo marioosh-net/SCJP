@@ -135,6 +135,15 @@ class Boxing {
       System.out.println("jjj:" + jjj);  // niby te same obiekty ale jjj = 127, why not 128 ??
       System.out.println("iii:" + iii);  // a iii = 128
     }
+    
+    
+    Integer a = 12;
+    Integer b = a;
+    a--;	// tutaj tak naprawde jest unboxing, odjecie na prymitywach i utworzneie nowego obiektu, dlatego
+    		// b sobie wskazuje na inny obiekt, a na inny, nowy.
+    System.out.println((a));
+    System.out.println((b));	
+
   }
 }
 

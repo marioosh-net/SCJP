@@ -7,7 +7,8 @@ package ch2;
 
 /**
  *
- * @author muniek
+ * UPCASTING - bezpieczny: 					Object object = string;
+ * DOWNCASTING - wymaga jawnego rzutowania:	String string = (String)object;
  */
 class Animal {
 }
@@ -42,6 +43,7 @@ public class Downcasting {
 }
 
 // upcasting (to more general type) / rzutowanie do bardziej ogolnego typu
+// zawsze jest bezpieczny
 class Upcasting {
   public static void main(String[] args) {
     new Upcasting();
