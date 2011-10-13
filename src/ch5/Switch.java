@@ -14,6 +14,7 @@ package ch5;
  *        break jest SUPERwazny.
  *  default: dziala jak normlany case, ale wejscie nastepuje bezwarunkowo!!!
  */
+
 public class Switch {
 
   static public void main(String[] args) {

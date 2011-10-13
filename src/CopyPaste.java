@@ -1,38 +1,71 @@
-interface I {}
 public class CopyPaste {
 
-	public static void main(String[] args) {
-	    Integer a = 126;
-	    Integer b = a;
-	    a--;	// tutaj tak naprawde jest unboxing, odjecie na prymitywach i utworzneie nowego obiektu, dlatego
-	    		// b sobie wskazuje na inny obiekt, a na inny, nowy.
-	    System.out.println((a));
-	    System.out.println((b));
-	    
-	    System.out.println((a == b));
+	public static void main(String[] args) throws Exception {
+		// Soccer.main(args);
 
-	    
-	    Integer c = 126;
-	    Integer d = 126;
-	    System.out.println((c == d));
-	    Integer e = 1260;
-	    Integer f = 1260;
-	    System.out.println((e == f));
-		
+		XXXX.main(args);
 	}
-
-	
-	
 }
 
-class MM {
-	static String name = "test";
+class XXXX {
+	static int x = 5;
+	public static void main(String[] args) {
 
-	static MM getMM() {
-		return null;
+		boolean b1 = false;
+		boolean b2  = false;
+		if (b2 = (b1 == false))
+		{
+		   System.out.println("true");
+		} else
+		{
+		   System.out.println("false");
+		}
+		
+		int count = 0, sum = 0;
+		do
+		{
+			if(count % 3 == 0) continue;
+			sum+=count;
+		}
+		while(count++ < 11);
+		System.out.println(sum);
+		
+      int i, j, k;
+      i = j = k = 9;
+      System.out.println(i);
+		
+	}
+	
+	public RETURNTYPE methodX( byte by)	{
+	    double d = 10.0;
+	    return (long) by     /d*3;
+	}
+
+
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+	}
+
+}
+
+class Game {
+	public void play() {
+		System.out.println("Playing...");
+	}
+}
+
+class Soccer extends Game {
+	public void play() {
+		System.out.println("Playing Soccer...");
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getMM().name);
+		Game g = new Soccer();
+		g.play();
+
+		for (int i = 0; i++ < 2; System.out.println(i), System.out.println(i))
+			;
 	}
 }
