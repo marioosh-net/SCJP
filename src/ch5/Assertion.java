@@ -40,6 +40,15 @@ public class Assertion {
     // sposob 2
     // wyrzuci  wyjatek java.lang.AssertionError z dopiskiem x = 2, y = 1
     assert (y > x) : "x = " + x + ", y = " + y;
+    
+    assert 10 > 10: null; // ok
+    assert true;
+    assert true: null;
+    assert false;	// od razu walnie AssertionError
+    
+    boolean b = false;
+    assert b = true;	// ok bo b= true 
+    
 
   }
 

@@ -1,38 +1,34 @@
-interface I {}
+import java.io.Console;
+
 public class CopyPaste {
-
 	public static void main(String[] args) {
-	    Integer a = 126;
-	    Integer b = a;
-	    a--;	// tutaj tak naprawde jest unboxing, odjecie na prymitywach i utworzneie nowego obiektu, dlatego
-	    		// b sobie wskazuje na inny obiekt, a na inny, nowy.
-	    System.out.println((a));
-	    System.out.println((b));
-	    
-	    System.out.println((a == b));
-
-	    
-	    Integer c = 126;
-	    Integer d = 126;
-	    System.out.println((c == d));
-	    Integer e = 1260;
-	    Integer f = 1260;
-	    System.out.println((e == f));
-		
+		B.main(args);
+	}
+}
+class A {
+	A() {
+		print();
 	}
 
-	
-	
+	void print() {
+		System.out.println("A");
+	}
 }
 
-class MM {
-	static String name = "test";
+class B extends A {
+	int i = Math.round(3.5f);
 
-	static MM getMM() {
-		return null;
+	public B() {
+		super();
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getMM().name);
+		A a = new B();
+		a.print();
+	}
+
+	void print() {
+		System.out.println(i);
 	}
 }
+

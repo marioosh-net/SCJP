@@ -114,6 +114,16 @@ public class Exceptions {
     	
     }
   }
+  
+	public float parseFloat(String s) {
+		float f = 0.0f;
+		try {
+			f = Float.valueOf(s).floatValue();
+		} finally {
+			return f;
+		}
+		return f;	// Unreachable code
+	}
 }
 
 /**
