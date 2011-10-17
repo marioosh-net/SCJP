@@ -1,7 +1,16 @@
 package ch7;
 
+import java.io.IOException;
 import java.util.*;
 
+/**
+ * Set / subSet
+ * jesli cos uda sie dodac do subSet'a to dodane jest rowniez do seta
+ * w odwrotna strone to nie dziala, chyba ze dodawany element miesci sie w zakresie subseta
+ * 
+ * @author marioosh
+ *
+ */
 public class TreeSet_ {
 
     public static void main(String[] args) {

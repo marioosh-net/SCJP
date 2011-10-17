@@ -36,6 +36,13 @@ public class Regex {
 			System.out.println(m.start() + ":" + m.group());
 		}
 		
+		
+		Pattern pat = Pattern.compile("C.*L");
+		Matcher mat = pat.matcher("CooLooLCuuLooC");
+		while(mat.find()) {
+			System.out.println(mat.start() + ":" + mat.group());
+		}
+		
 	}
 
 	void test() {

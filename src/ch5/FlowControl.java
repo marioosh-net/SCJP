@@ -2,10 +2,10 @@ package ch5;
 
 public class FlowControl {
 
-	void test() {
-		// zle
+	public static void main(String[] args) {
+		/* zle
 		if(true) 
-			String s = "a";
+			String s = "a"; */
 		
 		// ok
 		if(true) {
@@ -20,7 +20,15 @@ public class FlowControl {
 		if(true)
 			x();
 		else x();
+		
+		/**
+		 * UWAGA
+		 */
+		Boolean b = null;
+		if(b) {	}	// NullPointerException
+		
 	}
 	
-	void x() {};
+	static void x(){}
+
 }

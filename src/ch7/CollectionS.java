@@ -172,6 +172,7 @@ class Maps {
 		map.put("a", "ala");
 		map.put("w", "wacek");
 		map.put("j", "jacek");
+		System.out.println("PUT: "+map.put("j", "jacesk"));
 		
 		/**
 		 * submapa
