@@ -1,5 +1,7 @@
 package ch8;
 
+import XBB;
+
 /**
  * WAZNE:
  * 		klasa wewnetrzna ma dostep do wszystkich membrow (nawet private)
@@ -123,3 +125,16 @@ class TestOuter {
 	}
 }
 
+/**
+ * klasa wewnetrzna moze dziedziczyc z klasy zewnetrznej !!
+ */
+class XBB {
+	public XBB() {
+		System.out.println("XBB");
+	}
+	class B extends XBB {
+		public B() {
+			System.out.println("B");
+		}
+	}
+}
