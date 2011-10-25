@@ -68,6 +68,9 @@ public class Serialization {
   }
 }
 
+class Dom {
+	
+}
 /**
  * interfejs Serializable nie wymaga definiowania zadnych metod, 
  * jest to tzw. marker interface
@@ -81,6 +84,9 @@ class Book implements Serializable {
   transient Object obj = new Object();  // Object nie jest Serializable dlatego musi byc transient !!
   Bar bar = new Bar();
   static int stat1 = 10;
+  
+  static Dom dom = new Dom(); // ok, bo static, nie bedzie serializowany
+  // Dom dom = new Dom(); // nie ok, bo not serializable => exception
 
   Book(String title) {
     this.title = title;
