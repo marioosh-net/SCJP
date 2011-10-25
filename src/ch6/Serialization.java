@@ -86,6 +86,7 @@ class Book implements Serializable {
   static int stat1 = 10;
   
   static Dom dom = new Dom(); // ok, bo static, nie bedzie serializowany
+  Dom dom1; // ok, bo null
   // Dom dom = new Dom(); // nie ok, bo not serializable => exception
 
   Book(String title) {
